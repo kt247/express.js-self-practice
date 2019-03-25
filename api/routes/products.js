@@ -1,9 +1,9 @@
 const express = require('express');
 const router = express.Router();
-const controller = require('../controller/product');
+const controller = require('../controller/products');
 
 router.get('/api/products', (req, res) => {
-    res.send(controller.getProducts(req.query.page));
+    res.send(controller.getProducts(req.query));
 });
 
 router.get('/api/products/:productID', (req, res) => {

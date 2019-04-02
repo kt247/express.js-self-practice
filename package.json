@@ -12,6 +12,11 @@
   "dependencies": {
     "express": "^4.16.4",
     "mongodb": "^3.2.2",
+<<<<<<< HEAD
     "mongoose": "^5.4.20"
+=======
+    "mongoose": "^5.4.20",
+    "nodemon": "^1.18.10"
+>>>>>>> b852e208c375df5a045b753b6dc6b4a02a93e7a2
   }
 }

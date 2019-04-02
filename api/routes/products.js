@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const controller = require('../controller/products');
+
 
 router.get('/api/products', (req, res) => {
     controller.getProduct(req.query)

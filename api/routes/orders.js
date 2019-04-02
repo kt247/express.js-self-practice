@@ -3,7 +3,7 @@ const router = express.Router();
 const controller = require('../controller/orders');
 
 router.get('/api/orders', (req, res) => {
-    res.send(controller.getOrder(req.query));
+    controller.getOrder(req.query).then(data => res.send(data));
 });
 
 router.post('/api/orders', (req, res) => {

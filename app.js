@@ -3,6 +3,11 @@ const app = express()
 const bodyParser = require('body-parser');
 const port = 4000;
 
+var mongoose = require('mongoose');
+mongoose.connect('mongodb://localhost/web-demo', {
+    useNewUrlParser: true
+});
+
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 

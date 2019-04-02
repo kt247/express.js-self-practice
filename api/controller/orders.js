@@ -1,13 +1,13 @@
-const orders = require('../../db_order');
+const Order = require('../model/order');
 
 module.exports.getOrder = () => {
-    return orders;
-};
-
-module.exports.getOrderByID = (orderID) => {
-    return orders.filter(x => x.id == orderID);
-};
+    return Order.find({}, (err) => {
+        if (err) throw err;
+    });
+}
 
 module.exports.postOrder = (order) => {
-    orders.push(order);
-};
+    return Order.create(order, (err) => {
+        if (err) throw err;
+    });
+}

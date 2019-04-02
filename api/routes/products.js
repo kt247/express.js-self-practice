@@ -3,27 +3,29 @@ const router = express.Router();
 const controller = require('../controller/products');
 
 router.get('/api/products', (req, res) => {
-    res.send(controller.getProducts(req.query));
+    controller.getProduct(req.query)
+        .then(data => res.send(data));
 });
 
 router.get('/api/products/:productID', (req, res) => {
-    res.send(controller.getProductByID(req.params.productID));
+    controller.getProductByID(req.params.productID)
+        .then(data => res.send(data));
 });
 
 router.post('/api/products', (req, res) => {
     res.send(controller.postProduct(req.body));
 });
 
-router.put('/api/products/', (req, res) => {
-    res.send(controller.putProduct(req.body));
+router.put('/api/products/:productID', (req, res) => {
+    res.send(controller.putProduct(req.params.productID, req.body));
 });
 
-router.patch('/api/products/', (req, res) => {
-    res.send(controller.patchProduct(req.body));
+router.patch('/api/products/:productID', (req, res) => {
+    res.send(controller.patchProduct(req.params.productID, req.body));
 });
 
-router.delete('/api/products/', (req, res) => {
-    res.send(controller.deleteProduct(req.body));
+router.delete('/api/products/:productID', (req, res) => {
+    res.send(controller.deleteProduct(req.params.productID));
 });
 
 module.exports = router;
